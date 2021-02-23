@@ -1,0 +1,102 @@
+
+# @url = http://localhost
+@url = http://localhost:8080
+# @url = https://todos-test.azurewebsites.net/
+
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0b2RvcyIsInN1YiI6InNtYXNoZGV2IiwiYXV0aG9yaXRpZXMiOiJST0xFX1VTRVIiLCJleHAiOjE2MTM3ODIxNjV9.f0n4wVxd-5alKmbt7kUtSj1CDvHGm5ZbL0rViJvJLoI
+
+###
+
+GET {{url}}/api/todos HTTP/1.1
+
+###
+
+GET {{url}}/api/todos/1 HTTP/1.1
+
+###
+
+GET {{url}}/api/todos/99999 HTTP/1.1
+
+###
+
+POST {{url}}/api/todos HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST {{url}}/api/todos HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{}
+
+###
+
+POST {{url}}/api/todos HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "description": "New todo."
+}
+
+###
+
+PUT {{url}}/api/todos/1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+PUT {{url}}/api/todos/1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{}
+
+###
+
+PUT {{url}}/api/todos/1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "id": 1,
+    "description": "Updated todo."
+}
+
+###
+
+DELETE {{url}}/api/todos/1 HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+POST {{url}}/authenticate HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "smashdev",
+    "password": "Asdff88f67!"
+}
+
+###
+
+POST {{url}}/create_account HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "smashdev",
+  "password": "Asdff88f67!"
+}
+
+###
+
+POST {{url}}/create_account HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "",
+  "password": ""
+}
